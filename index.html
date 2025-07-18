@@ -32,6 +32,14 @@
         .sidebar-link.active i {
             color: #2563eb;
         }
+        .widget-clickable {
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .widget-clickable:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-100" x-data="{ sidebarOpen: false, activeTab: 'main' }">
@@ -105,7 +113,7 @@
                 <div x-show="activeTab === 'main'" x-cloak>
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                         <!-- KPI Cards -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
+                        <div @click="activeTab = 'students'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Всего учеников</p>
                                 <p class="text-3xl font-bold text-gray-800">320</p>
@@ -114,7 +122,7 @@
                                 <i class="o-users h-6 w-6 text-blue-500"></i>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
+                        <div @click="activeTab = 'students'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Присутствуют</p>
                                 <p class="text-3xl font-bold text-gray-800">302</p>
@@ -123,7 +131,7 @@
                                 <i class="o-user-group h-6 w-6 text-green-500"></i>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
+                        <div @click="activeTab = 'health'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Средний уровень стресса</p>
                                 <p class="text-3xl font-bold text-gray-800">18%</p>
@@ -132,7 +140,7 @@
                                 <i class="o-face-frown h-6 w-6 text-yellow-500"></i>
                             </div>
                         </div>
-                        <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
+                        <div @click="activeTab = 'security'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Инциденты сегодня</p>
                                 <p class="text-3xl font-bold text-gray-800">2</p>
@@ -143,7 +151,7 @@
                         </div>
 
                         <!-- Attendance Chart -->
-                        <div class="xl:col-span-2 bg-white p-6 rounded-xl shadow-sm">
+                        <div @click="activeTab = 'students'" class="widget-clickable xl:col-span-2 bg-white p-6 rounded-xl shadow-sm">
                             <h3 class="font-semibold text-gray-700">Посещаемость по часам</h3>
                             <div class="h-64 mt-4">
                                 <svg class="w-full h-full" viewBox="0 0 300 150">
@@ -159,21 +167,36 @@
                             </div>
                         </div>
 
-                        <!-- Emotional State Chart -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <!-- Emotional State Widget -->
+                        <div @click="activeTab = 'health'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm">
                             <h3 class="font-semibold text-gray-700">Эмоциональное состояние</h3>
-                            <div class="h-64 mt-4 flex items-center justify-center">
-                                 <svg class="w-48 h-48" viewBox="0 0 36 36">
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e5e7eb" stroke-width="3"/>
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#4ade80" stroke-width="3" stroke-dasharray="70, 100"/>
-                                    <text x="18" y="20.35" text-anchor="middle" font-size="5" fill="#374151" font-weight="bold">70%</text>
-                                    <text x="18" y="16.35" text-anchor="middle" font-size="2" fill="#6b7280">Спокойное</text>
-                                </svg>
+                            <div class="h-64 mt-4 flex flex-col justify-center space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Спокойное</span>
+                                        <span class="text-sm font-medium text-green-600">70%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-green-500 h-2.5 rounded-full" style="width: 70%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Напряженное</span>
+                                        <span class="text-sm font-medium text-yellow-600">18%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-yellow-400 h-2.5 rounded-full" style="width: 18%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">Стресс</span>
+                                        <span class="text-sm font-medium text-red-600">12%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-red-500 h-2.5 rounded-full" style="width: 12%"></div></div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Recent Security Events -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div @click="activeTab = 'security'" class="widget-clickable bg-white p-6 rounded-xl shadow-sm">
                             <h3 class="font-semibold text-gray-700">Последние события безопасности</h3>
                             <ul class="mt-4 space-y-4">
                                 <li class="flex items-start">
@@ -201,7 +224,7 @@
                         </div>
 
                          <!-- High Stress Students Table -->
-                        <div class="xl:col-span-4 bg-white p-6 rounded-xl shadow-sm">
+                        <div @click="activeTab = 'health'" class="widget-clickable xl:col-span-4 bg-white p-6 rounded-xl shadow-sm">
                             <h3 class="font-semibold text-gray-700">Ученики, требующие внимания</h3>
                             <div class="overflow-x-auto mt-4">
                                 <table class="w-full text-left">
@@ -215,13 +238,13 @@
                                     </thead>
                                     <tbody class="divide-y">
                                         <tr class="hover:bg-gray-50">
-                                            <td class="p-3 font-medium">Иванов Петр</td>
+                                            <td class="p-3 font-medium">Мукасан Досов</td>
                                             <td class="p-3">11 "В"</td>
                                             <td class="p-3"><span class="px-2 py-1 text-xs font-semibold text-red-800 bg-red-100 rounded-full">Высокий</span></td>
                                             <td class="p-3"><button class="text-blue-500 hover:underline text-sm">Уведомить психолога</button></td>
                                         </tr>
                                         <tr class="hover:bg-gray-50">
-                                            <td class="p-3 font-medium">Сидорова Елена</td>
+                                            <td class="p-3 font-medium">Магрипа Хырпулаевна</td>
                                             <td class="p-3">9 "Б"</td>
                                             <td class="p-3"><span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Повышенный</span></td>
                                             <td class="p-3"><button class="text-blue-500 hover:underline text-sm">Смотреть профиль</button></td>
@@ -233,10 +256,40 @@
                     </div>
                 </div>
 
+                <!-- Students Tab -->
+                <div x-show="activeTab === 'students'" x-cloak>
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-gray-800">Список учеников</h2>
+                        <p class="mt-2 text-gray-600">Детальная информация о всех учениках школы.</p>
+                        <!-- Add detailed student table here -->
+                    </div>
+                </div>
+                
+                <!-- Security Tab -->
+                <div x-show="activeTab === 'security'" x-cloak>
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-gray-800">Мониторинг безопасности</h2>
+                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                            <div class="bg-gray-200 aspect-video rounded-lg flex items-center justify-center text-gray-500">Камера 1: Главный вход</div>
+                            <div class="bg-gray-200 aspect-video rounded-lg flex items-center justify-center text-gray-500">Камера 2: Коридор, 1 этаж</div>
+                            <div class="bg-gray-200 aspect-video rounded-lg flex items-center justify-center text-gray-500">Камера 3: Столовая</div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Health Tab -->
+                <div x-show="activeTab === 'health'" x-cloak>
+                    <div class="bg-white p-8 rounded-xl shadow-sm">
+                        <h2 class="text-2xl font-bold text-gray-800">Обзор здоровья учеников</h2>
+                        <p class="mt-2 text-gray-600">Анализ эмоционального и физического состояния.</p>
+                        <!-- Add detailed health charts and tables here -->
+                    </div>
+                </div>
+
                 <!-- Placeholder for other tabs -->
-                <div x-show="activeTab !== 'main'" x-cloak class="bg-white p-8 rounded-xl shadow-sm">
-                    <h2 class="text-2xl font-bold text-gray-800 capitalize" x-text="activeTab"></h2>
-                    <p class="mt-4 text-gray-600">Здесь будет содержимое для раздела <span x-text="activeTab"></span>.</p>
+                <div x-show="['grades', 'settings'].includes(activeTab)" x-cloak class="bg-white p-8 rounded-xl shadow-sm">
+                    <h2 class="text-2xl font-bold text-gray-800 capitalize" x-text="activeTab === 'grades' ? 'Успеваемость' : 'Настройки'"></h2>
+                    <p class="mt-4 text-gray-600">Здесь будет содержимое для данного раздела.</p>
                 </div>
             </main>
         </div>
