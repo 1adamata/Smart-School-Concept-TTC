@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Концепция Smart School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom class for the details section for smooth transition */
+        .details-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, margin-top 0.5s ease-out, padding-top 0.5s ease-out;
+        }
+        .details-section.open {
+            max-height: 500px; /* Adjust as needed */
+            margin-top: 1rem;
+            padding-top: 1rem;
+            transition: max-height 0.5s ease-in, margin-top 0.5s ease-in, padding-top 0.5s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header Section -->
+        <header class="relative mb-8 text-center bg-white p-6 rounded-xl shadow-md">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Smart School Concept</h1>
+            <div class="absolute top-4 right-6 text-xl font-bold text-teal-600">TTC</div>
+        </header>
+
+        <!-- Main Grid for Concepts -->
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            
+            <!-- Column 1 -->
+            <div class="space-y-6 lg:space-y-8">
+                <!-- Card: Высокоскоростной интернет -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Высокоскоростной интернет</h3>
+                    <p class="mt-2 text-gray-600 bg-teal-50 border border-teal-200 rounded-lg p-3">Доступ к интернету на скорости до 100 Мбит/с с полным Wi-Fi покрытием в здании.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Создается бесшовная Wi-Fi-сеть (mesh-система), которая гарантирует стабильное и качественное покрытие во всех учебных и административных помещениях школы. Управление и мониторинг сети осуществляются централизованно для обеспечения максимальной производительности.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Корпоративная сеть -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Корпоративная сеть</h3>
+                    <p class="mt-2 text-gray-600 bg-teal-50 border border-teal-200 rounded-lg p-3">Создание защищенной локальной сети.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Построение управляемой и безопасной сетевой инфраструктуры, которая объединяет все цифровые сервисы школы. Это включает в себя управляемые коммутаторы и оптические межэтажные соединения для максимальной надежности и скорости.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Мониторинг скорости интернет -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-teal-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Мониторинг скорости интернет</h3>
+                    <p class="mt-2 text-gray-600 bg-teal-50 border border-teal-200 rounded-lg p-3">Постоянный контроль входящей и исходящей скорости интернет-соединения.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Внедряется система, которая позволяет в реальном времени отслеживать параметры интернет-канала, такие как входящая и исходящая скорость, а также пинг. Это обеспечивает прозрачность услуги и позволяет оперативно реагировать на возможные проблемы.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Безопасная школа (Видеонаблюдение) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Безопасная школа (Видеонаблюдение)</h3>
+                    <p class="mt-2 text-gray-600 bg-red-50 border border-red-200 rounded-lg p-3">Видеонаблюдение с функциями распознавания и аналитики на базе ИИ по периметру школы.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Решение «Protector AI» использует существующие видеокамеры, чтобы круглосуточно анализировать видеопоток на наличие агрессии и других нештатных ситуаций. Система может распознавать лица, интегрироваться с базой данных преступников и детектировать массовые скопления людей.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Здоровая школа (мониторинг Стресса) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Здоровая школа (мониторинг Стресса)</h3>
+                    <p class="mt-2 text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">Анализ эмоционального состояния учащихся через VR, для выявления стресса и вовлеченности учащихся.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Платформа для точного определения уровня стресса и когнитивных способностей с помощью 25-минутного VR-тестирования. VR-шлем с биометрическими датчиками отслеживает психоэмоциональное состояние, позволяя предотвратить выгорание и панику в нестандартных ситуациях.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Здоровая школа (Видеоаналитика) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Здоровая школа (Видеоаналитика)</h3>
+                    <p class="mt-2 text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">Распознавание и считывание эмоций детей на базе ИИ.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Искусственный интеллект анализирует видео с камер для выявления признаков буллинга и агрессии, а также для общего мониторинга эмоционального фона в коллективе. При обнаружении инцидента система отправляет уведомление ответственным лицам.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Цифровая школа (Kezekshi) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Цифровая школа (Kezekshi)</h3>
+                    <p class="mt-2 text-gray-600 bg-cyan-50 border border-cyan-200 rounded-lg p-3">Цифровая экосистема шк: СКУД, Столовая, Библиотека, информационное табло.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Единая система идентификации учеников, обеспечивающая пропуск в здание (СКУД), оплату питания (Е-столовая) и доступ к учебным материалам (E-kitaphana). Это решение автоматизирует учет посещаемости, оптимизирует бюджетные расходы и снижает нагрузку на персонал.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+            </div>
+            
+            <!-- Column 2 -->
+            <div class="space-y-6 lg:space-y-8">
+                <!-- Card: Безопасный интернет (DNS) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-gray-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Безопасный интернет (DNS)</h3>
+                    <p class="mt-2 text-gray-600 bg-gray-100 border border-gray-200 rounded-lg p-3">Контроль и блокировка нежелательного контента интернет-доступа.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Внедрение системы фильтрации на уровне DNS, которая предотвращает доступ учащихся к ресурсам, содержащим вредоносную, незаконную или нежелательную информацию, обеспечивая безопасную цифровую среду.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: СКС -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-gray-500">
+                    <h3 class="text-xl font-semibold text-gray-800">СКС</h3>
+                    <p class="mt-2 text-gray-600 bg-gray-100 border border-gray-200 rounded-lg p-3">Кабельная система для соединения всех ИТ-сервисов в школе.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Комплексная телекоммуникационная инфраструктура, которая является основой для надежной работы локальной сети, телефонии, видеонаблюдения и других систем. Заменяет устаревшие кабели на современные оптические линии.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Безопасная школа (тревожные кнопки) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Безопасная школа (тревожные кнопки)</h3>
+                    <p class="mt-2 text-gray-600 bg-red-50 border border-red-200 rounded-lg p-3">Оперативное реагирование на нештатные ситуации.+ датчики дыма, воздуха и курения.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Система экстренного оповещения, интегрированная с видеонаблюдением и датчиками (дыма, воздуха). Позволяет мгновенно передать сигнал тревоги на пульт охраны или в полицию для оперативного реагирования.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Умная школа (интерактивное оборудование) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Умная школа (интерактивное оборудование)</h3>
+                    <p class="mt-2 text-gray-600 bg-amber-50 border border-amber-200 rounded-lg p-3">Интерактивные комплексы дополненной реальности для развития детей.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Использование современных образовательных технологий, включая панели и AR-комплексы, для повышения вовлеченности учащихся, наглядности материала и развития креативных навыков.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Умная школа (честность экзаменов) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-amber-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Умная школа (честность экзаменов)</h3>
+                    <p class="mt-2 text-gray-600 bg-amber-50 border border-amber-200 rounded-lg p-3">Обеспечения честности экзаменов в онлайн и оффлайн формате.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Внедрение системы прокторинга на базе ИИ ("Oqylyq"), которая следит за соблюдением правил во время тестов и экзаменов, анализируя видео и аудиопоток на предмет нарушений.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Цифровая школа (ЭДО) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Цифровая школа (ЭДО с подписью с телефонов)</h3>
+                    <p class="mt-2 text-gray-600 bg-blue-50 border border-blue-200 rounded-lg p-3">Автоматизация процессов документооборота школы при помощи удаленной подписи с любой точки Земли.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Система электронного документооборота, позволяющая подписывать документы с помощью SMS, Egov mobile или биометрии. Интегрируется с государственными базами данных и 1С, автоматизируя кадровые и бухгалтерские процессы.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+
+                <!-- Card: Цифровая школа (на базе ИИ) -->
+                <div class="concept-card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800">Цифровая школа (на базе ИИ)</h3>
+                    <p class="mt-2 text-gray-600 bg-blue-50 border border-blue-200 rounded-lg p-3">Автоматизация всех бизнес процессов школы при помощи ИИ агентов.</p>
+                    <div class="details-section border-t border-gray-200">
+                        <p class="text-gray-700">Внедрение локального ИИ-ассистента (аналог ChatGPT), который обучен на внутренних документах школы и законодательстве. Он помогает сотрудникам быстро находить информацию, автоматизировать рутинные задачи и получать точные ответы на рабочие вопросы.</p>
+                    </div>
+                    <button class="toggle-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Подробнее</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // This script adds the interactivity to the "Подробнее" buttons.
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Find the details section within the same card
+                    const details = this.parentElement.querySelector('.details-section');
+                    
+                    // Toggle the 'open' class
+                    details.classList.toggle('open');
+                    
+                    // Change button text based on the state
+                    const isVisible = details.classList.contains('open');
+                    this.textContent = isVisible ? 'Скрыть' : 'Подробнее';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
